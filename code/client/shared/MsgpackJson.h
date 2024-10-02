@@ -143,6 +143,8 @@ inline void ConvertToJSON(const msgpack::object& object, rapidjson::Value& value
 
 		case msgpack::type::MAP:
 		{
+
+			//test
 			std::map<std::string, msgpack::object> list;
 
 			if (object.via.map.ptr)
