@@ -483,15 +483,9 @@ static InitFunction initFunction([]()
 					client->rxcount = 0;
 				});
 
-				if (!result)
+				if (!result || client->shutdown_wait)
 				{
 					stream->Close();
-				}
-
-				// close stream if shutting down
-				if (client->shutdown_wait)
-				{
-					client->stream->Close();
 				}
 			});
 
