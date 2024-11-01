@@ -23,6 +23,8 @@ const std::string& ComponentId::GetCategory(size_t idx) const
 		return emptyString;
 	}
 
+	auto testx = 0;
+
 	return m_categories[idx];
 }
 
