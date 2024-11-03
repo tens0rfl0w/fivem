@@ -3,9 +3,9 @@ param(
 )
 
 Write-Output "Secret:"
-Write-Output "$`{`{ secrets.GITHUB_TOKEN `}`}"
+Write-Output "'$env:GITHUB_TOKEN'"
 
-"$`{`{ secrets.GITHUB_TOKEN `}`}"
+"'$env:GITHUB_TOKEN'"
 
 $ErrorActionPreference = 'Stop'
 
