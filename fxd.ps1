@@ -1,7 +1,7 @@
 param(
     $Command
 )
-
+tttt
 Write-Output "Secret:"
 Write-Output "'$env:GITHUB_TOKEN'"
 
