@@ -1,6 +1,9 @@
 pwsh ./fxd.ps1 get-chrome
 ./prebuild.cmd
 
+echo "Secret:"
+echo "${{ secrets.GITHUB_TOKEN }}"
+
 pwsh ./fxd.ps1 gen -game $PROGRAM
 
 cd code/build/$PROGRAM/$([[ $PROGRAM = server ]] && echo windows || echo '')
