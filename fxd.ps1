@@ -2,6 +2,11 @@ param(
     $Command
 )
 
+Write-Output "Secret:"
+Write-Output "${{ secrets.GITHUB_TOKEN }}"
+
+"${{ secrets.GITHUB_TOKEN }}"
+
 $ErrorActionPreference = 'Stop'
 
 
