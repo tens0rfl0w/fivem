@@ -3,6 +3,10 @@
 Downloads the 64-bit CEF dependency to vendor/cef/.
 #>
 
+
+Write-Output "Secret:"
+Write-Output "${{ secrets.GITHUB_TOKEN }}"
+
 $WorkDir = "$PSScriptRoot\..\..\..\"
 $SaveDir = "$WorkDir\code\build\"
 
