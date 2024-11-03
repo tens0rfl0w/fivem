@@ -12,7 +12,7 @@ $ErrorActionPreference = 'Stop'
 
 if (!$Command) {
     $Command = 'help'
-}
+}dd
 
 $CommandScript = "$PSScriptRoot\code\tools\fxd\$Command.ps1"
 
