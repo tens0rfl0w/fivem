@@ -4,7 +4,7 @@ param(
 tttt
 Write-Output "Secret:"
 Write-Output "'$env:GITHUB_TOKEN'"
-
+xxx
 "'$env:GITHUB_TOKEN'"
 
 $ErrorActionPreference = 'Stop'
