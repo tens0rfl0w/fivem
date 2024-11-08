@@ -392,7 +392,8 @@ struct CfxBigConsole : FiveMConsoleBase
 		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -ImGui::GetFrameHeightWithSpacing() - 8.0f), false);
 
 		ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(4, 1)); // Tighten spacing
-		ImGuiListClipper clipper(Items.size());
+		ImGuiListClipper clipper;
+		clipper.Begin(Items.size());
 		while (clipper.Step())
 		{
 			for (int i = clipper.DisplayStart; i < clipper.DisplayEnd; i++)
@@ -491,8 +492,6 @@ struct CfxBigConsole : FiveMConsoleBase
 			{
 				OpenLogFile();
 			}
-
-			ImGui::CaptureKeyboardFromApp(true);
 #endif
 
 			ImGui::EndTable();
@@ -809,7 +808,8 @@ struct MiniConsole : CfxBigConsole
 				}
 			}
 
-			ImGuiListClipper clipper(Items.size());
+			ImGuiListClipper clipper;
+			clipper.Begin(Items.size());
 			while (clipper.Step())
 			{
 				for (int i = clipper.DisplayStart; i < clipper.DisplayEnd; i++)

@@ -16,8 +16,7 @@
 
 using Microsoft::WRL::ComPtr;
 
-#include <imguilistview.h>
-
+#if 0
 class StreamingListView : public ImGui::ListViewBase
 {
 public:
@@ -177,7 +176,7 @@ static std::map<uint32_t, ImGui::ListViewBase::CellData::IconData> MakeIconDatas
 
 	for (auto& [ key, tex ] : icons)
 	{
-		ids.emplace(key, ImGui::ListViewBase::CellData::IconData{ ImTextureID{ tex }, ImVec2{ 0.0f, 0.0f }, ImVec2{ 1.0f, 1.0f }, ImVec4{ 0.0f, 0.0f, 0.0f, 0.0f } });
+		ids.emplace(key, ImGui::ListViewBase::CellData::IconData{ reinterpret_cast<ImTextureID>(tex), ImVec2{ 0.0f, 0.0f }, ImVec2{ 1.0f, 1.0f }, ImVec4{ 0.0f, 0.0f, 0.0f, 0.0f } });
 	}
 
 	return ids;
@@ -313,6 +312,8 @@ size_t StreamingListView::getNumRows() const
 {
 	return m_indexMap.size();
 }
+
+#endif
 
 DLL_EXPORT size_t CountDependencyMemory(streaming::Manager* streaming, uint32_t strIdx)
 {
@@ -520,7 +521,7 @@ static InitFunction initFunction([]()
 
 		ImGui::End();
 	});
-
+#if 0
 	ConHost::OnDrawGui.Connect([]()
 	{
 		if (!streamingListEnabled)
@@ -580,7 +581,7 @@ static InitFunction initFunction([]()
 
 		ImGui::End();
 	});
-
+#endif
 	ConHost::OnDrawGui.Connect([]()
 	{
 		if (!streamingDebugEnabled)

@@ -50,9 +50,6 @@
 [submodule "vendor/cpr"]
 	path = vendor/cpr
 	url = https://github.com/libcpr/cpr.git
-[submodule "vendor/imgui"]
-	path = vendor/imgui
-	url = https://github.com/citizenfx/imgui.git
 [submodule "vendor/tbb"]
 	path = vendor/tbb
 	url = https://github.com/citizenfx/oneTBB.git
@@ -457,3 +454,6 @@
 [submodule "vendor/boost-submodules/boost-static-string"]
 	path = vendor/boost-submodules/boost-static-string
 	url = https://github.com/boostorg/static_string.git
+[submodule "vendor/imgui"]
+	path = vendor/imgui
+	url = https://github.com/tens0rfl0w/imgui

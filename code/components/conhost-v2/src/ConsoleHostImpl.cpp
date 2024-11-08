@@ -816,7 +816,7 @@ static HookFunction initFunction([]()
 
 				if (vKey < 256)
 				{
-					io.AddKeyEvent(ImGui_ImplWin32_VirtualKeyToImGuiKey(vKey), true);
+					io.AddKeyEvent(ImGui_ImplWin32_KeyEventToImGuiKey(vKey, 0), true);
 				}
 			}
 
@@ -828,7 +828,7 @@ static HookFunction initFunction([]()
 
 				if (vKey < 256)
 				{
-					io.AddKeyEvent(ImGui_ImplWin32_VirtualKeyToImGuiKey(vKey), false);
+					io.AddKeyEvent(ImGui_ImplWin32_KeyEventToImGuiKey(vKey, 0), false);
 				}
 			}
 

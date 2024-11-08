@@ -17,6 +17,7 @@
 #include "stb_image.h"
 
 #ifdef _WIN32
+#define NOMINMAX
 #include <windows.h>
 #include <shellapi.h>
 #include <lmcons.h>
@@ -1179,7 +1180,7 @@ namespace ifd {
 
 				bool isSelected = std::count(m_selections.begin(), m_selections.end(), entry.Path);
 
-				if (FileIcon(filename.c_str(), isSelected, entry.HasIconPreview ? entry.IconPreview : (ImTextureID)m_getIcon(entry.Path), ImVec2(32 + 16 * m_zoom, 32 + 16 * m_zoom), entry.HasIconPreview, entry.IconPreviewWidth, entry.IconPreviewHeight)) {
+				if (FileIcon(filename.c_str(), isSelected, entry.HasIconPreview ? reinterpret_cast<ImTextureID>(entry.IconPreview) : reinterpret_cast<ImTextureID>(m_getIcon(entry.Path)), ImVec2(32 + 16 * m_zoom, 32 + 16 * m_zoom), entry.HasIconPreview, entry.IconPreviewWidth, entry.IconPreviewHeight)) {
 					std::error_code ec;
 					bool isDir = std::filesystem::is_directory(entry.Path, ec);
 
@@ -1409,10 +1410,9 @@ namespace ifd {
 				m_finalize();
 		}
 
-		int escapeKey = ImGui::GetIO().KeyMap[ImGuiKey_Escape];
-		if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows) &&
-			 escapeKey >= 0 && ImGui::IsKeyPressed(escapeKey))
-			m_isOpen = false;
+        if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows) &&
+             ImGuiKey_Escape >= 0 && ImGui::IsKeyPressed(ImGuiKey_Escape))
+            m_isOpen = false;
 	}
 }
 
