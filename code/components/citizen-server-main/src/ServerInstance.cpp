@@ -270,6 +270,7 @@ class ServerMain
 {
 	virtual void Run(fwRefContainer<Component> component)
 	{
+		trace("TestTestTest.\n");
 		// run the server's main routine
 		fwRefContainer<RunnableComponent> runnableServer = dynamic_cast<RunnableComponent*>(component.GetRef());
 
