@@ -15,7 +15,7 @@ echo "Running build inside Docker container..."
 docker run --rm \
   -v "$ROOT_REPO:/workspace" \
   -w /workspace \
-  $IMAGE_NAME \
+  $IMAGE_PATH \
   sh code/tools/ci/build_server_docker_alpine_public.sh
 
 echo "Build completed successfully!"
