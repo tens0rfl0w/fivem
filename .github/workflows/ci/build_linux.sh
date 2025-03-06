@@ -4,9 +4,12 @@ set -e
 ROOT_REPO=$(pwd)
 
 IMAGE_NAME="fivem-builder-linux-alpine"
+IMAGE_TAG="latest"
+REGISTRY="ghcr.io"
+IMAGE_PATH="${REGISTRY}/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${IMAGE_TAG}"
 
-echo "Building Docker image..."
-docker build -t $IMAGE_NAME -f "$ROOT_REPO/code/tools/ci/docker-builder/Dockerfile" "$ROOT_REPO"
+echo "Pulling Docker image from $IMAGE_PATH..."
+docker pull $IMAGE_PATH
 
 echo "Running build inside Docker container..."
 docker run --rm \
