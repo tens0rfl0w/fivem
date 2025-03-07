@@ -11,6 +11,9 @@ REPO_NAME_LOWER="${GITHUB_REPOSITORY,,}"
 
 IMAGE_PATH="${REGISTRY}/${REPO_NAME_LOWER}/${IMAGE_NAME}:${IMAGE_TAG}"
 
+echo "Authenticating to GitHub Container Registry..."
+echo "${GHCR_PAT}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
+
 echo "Pulling Docker image from $IMAGE_PATH..."
 docker pull $IMAGE_PATH
 
