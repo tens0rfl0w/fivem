@@ -3,7 +3,8 @@ name: CI Build all products
 on:
   workflow_call:
 
-permissions: {}
+permissions:
+  packages: read
 
 jobs:
   build_all:
