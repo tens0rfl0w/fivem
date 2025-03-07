@@ -279,7 +279,7 @@ class ServerMain
 		}
 		else
 		{
-			trace("citizen:server:main component does not implement RunnableComponent. Exiting.\n");
+			trace("citizen:server:main component does not implement RunnableComponent. Exiting TEST.\n");
 		}
 	}
 };
