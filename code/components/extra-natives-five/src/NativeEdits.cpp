@@ -121,6 +121,7 @@ static HookFunction hookFunction([]()
 	OnKillNetworkDone.Connect([]()
 	{
 		*g_ropesCreateNetworkWorldState = false;
+		*g_ropesCreateNetworkWorldState = false;
 	});
 
 	rage::scrEngine::OnScriptInit.Connect([]()
